@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0b0c10;
+  --panel: #11131a;
+  --text: #e9eef7;
+  --muted: #a9b3c7;
+  --accent: #8b5cf6;
+  --border: #24283a;
+  --max: 980px;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  width: min(var(--max), calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 1000;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: rgba(17, 19, 26, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 30% 30%, #a78bfa, #7c3aed);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.brand h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.brand p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0 1rem;
+}
+
+.nav a {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+.nav a[aria-current="page"] {
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.15) inset;
+}
+
+main {
+  padding: 1.25rem 0 2.5rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.kicker {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  padding: 1rem 0;
+  font-size: 0.95rem;
+}
+
+small {
+  color: var(--muted);
+}
