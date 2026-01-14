@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LifeQuest - Contact</title>
+    <meta name="description" content="Contact the LifeQuest team." />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <h1>LifeQuest</h1>
+            <p>Level up your life skills through small daily wins.</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="dashboard.html">Dashboard</a>
+          <a data-nav href="money.html">Money Manager</a>
+          <a data-nav href="habits.html">Healthy Habits</a>
+          <a data-nav href="productivity.html">Productivity Arena</a>
+          <a data-nav href="achievements.html">Achievements</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <header>
+          <p class="kicker">We’d like to hear from you</p>
+          <h2>Contact</h2>
+          <p>
+            This form is for Phase 1 content requirements only. Submissions are
+            not processed yet.
+          </p>
+        </header>
+
+        <section class="card">
+          <h3>Contact Form</h3>
+
+          <form action="#" method="post">
+            <p>
+              <label for="name">Full Name</label><br />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </p>
+
+            <p>
+              <label for="email">Email</label><br />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </p>
+
+            <p>
+              <label for="topic">Topic</label><br />
+              <select id="topic" name="topic">
+                <option value="general">General</option>
+                <option value="bug">Bug report</option>
+                <option value="feature">Feature suggestion</option>
+                <option value="team">Team / collaboration</option>
+              </select>
+            </p>
+
+            <fieldset>
+              <legend>Preferred Contact Method</legend>
+              <p>
+                <input
+                  id="pref-email"
+                  name="pref"
+                  type="radio"
+                  value="email"
+                  checked
+                />
+                <label for="pref-email">Email</label>
+              </p>
+              <p>
+                <input id="pref-phone" name="pref" type="radio" value="phone" />
+                <label for="pref-phone">Phone</label>
+              </p>
+            </fieldset>
+
+            <p>
+              <label for="phone">Phone (optional)</label><br />
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </p>
+
+            <p>
+              <label for="passcode">Passcode (demo password field)</label><br />
+              <input id="passcode" name="passcode" type="password" />
+            </p>
+
+            <p>
+              <label for="message">Message</label><br />
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+              ></textarea>
+            </p>
+
+            <p>
+              <button type="submit">Send (Phase 1 placeholder)</button>
+            </p>
+          </form>
+        </section>
+
+        <aside class="card" style="margin-top: 1rem">
+          <h3>Other Links</h3>
+          <ul>
+            <li><a href="about.html">About LifeQuest</a></li>
+            <li><a href="index.html">Back to Home</a></li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p><strong>Credits:</strong> (Add asset sources here.)</p>
+        <p>
+          <small>&copy; <span data-year></span> LifeQuest Team.</small>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
