@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LifeQuest - Money Manager</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div>
+            <h1>LifeQuest</h1>
+            <p>Level up your life skills through small daily wins.</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="dashboard.html">Dashboard</a>
+          <a data-nav href="money.html" aria-current="page">Money Manager</a>
+          <a data-nav href="habits.html">Healthy Habits</a>
+          <a data-nav href="productivity.html">Productivity Arena</a>
+          <a data-nav href="achievements.html">Achievements</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <header class="budget-summary">
+          <h2>Budget Summary</h2>
+
+          <p class="kicker">
+            Current Budget: $
+            <strong><span id="currentIncome">0</span></strong>
+          </p>
+
+          <div class="budget-bar-wrap">
+            <div id="budgetBar" class="budget-bar"></div>
+          </div>
+
+          <p class="remaining-text">
+            Remaining Budget: $
+            <strong><span id="remaining">0</span></strong>
+          </p>
+
+          <p class="budget-feedback" id="budgetFeedback"></p>
+
+          <div class="income-set">
+            <input
+              type="number"
+              id="incomeInput"
+              placeholder="Enter monthly income"
+              min="0"
+            />
+            <button id="setIncomeBtn">Set Income</button>
+          </div>
+        </header>
+
+        <!-- Expenses -->
+        <section class="grid" id="expensesGrid">
+          <article class="card add-expense" id="addExpenseCard">
+            <div class="plus">+</div>
+            <p>New Expense</p>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <!-- Expense Modal -->
+    <div class="modal" id="expenseModal" hidden>
+      <div class="modal-content card">
+        <h3>New Expense</h3>
+
+        <label>
+          Name
+          <input id="expenseName" type="text" placeholder="Rent" />
+        </label>
+
+        <label>Choose Emoji</label>
+        <div class="emoji-picker" id="emojiPicker">
+          <button type="button" class="emoji-btn">🏠</button>
+          <button type="button" class="emoji-btn">🍔</button>
+          <button type="button" class="emoji-btn">🚗</button>
+          <button type="button" class="emoji-btn">🎮</button>
+          <button type="button" class="emoji-btn">📱</button>
+          <button type="button" class="emoji-btn">💡</button>
+        </div>
+
+        <label>
+          Amount ($)
+          <input id="expenseAmount" type="number" min="0" />
+        </label>
+
+        <button id="saveExpenseBtn">Add Expense</button>
+      </div>
+    </div>
+
+    <script src="js/money.js"></script>
+  </body>
+</html>
