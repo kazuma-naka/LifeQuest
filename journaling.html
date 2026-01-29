@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LifeQuest - Journaling</title>
+    <meta
+      name="description"
+      content="Reflect on your day and track your thoughts and emotions."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <h1>LifeQuest</h1>
+            <p>Level up your life skills through small daily wins.</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="money.html">Money Manager</a>
+          <a data-nav href="habits.html">Healthy Habits</a>
+          <a data-nav href="productivity.html">Productivity Arena</a>
+          <a data-nav href="achievements.html">Achievements</a>
+          <a data-nav href="quiz.html">Quiz Game</a>
+          <a data-nav href="journaling.html">Journaling</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <!-- Introduction Section -->
+        <header>
+          <p class="kicker">Daily Reflection • Mindfulness • Self-Discovery</p>
+          <h2>Your Daily Journal</h2>
+          <p>
+            Take a moment to reflect on your day. Use this space to express your
+            thoughts, feelings, and experiences freely.
+          </p>
+        </header>
+
+        <!-- Journal Entry Form -->
+        <section class="card">
+          <h3>Today's Reflection</h3>
+          
+          <form>
+            <!-- Mood Selection -->
+            <p>
+              <label for="mood"><strong>How are you feeling right now?</strong></label>
+              <select id="mood" name="mood">
+                <option value="">-- Select your mood --</option>
+                <option value="amazing">Amazing</option>
+                <option value="happy">Happy</option>
+                <option value="content">Content</option>
+                <option value="neutral">Neutral</option>
+                <option value="tired">Tired</option>
+                <option value="sad">Sad</option>
+                <option value="anxious">Anxious</option>
+                <option value="frustrated">Frustrated</option>
+              </select>
+            </p>
+
+            <!-- Main Reflection -->
+            <p>
+              <label for="reflection"><strong>What's on your mind today?</strong></label>
+              <textarea 
+                id="reflection" 
+                name="reflection"
+                rows="8"
+                placeholder="Write about your thoughts, feelings, experiences, or anything you want to express..."
+              ></textarea>
+            </p>
+
+            <!-- One Thing Learned -->
+            <p>
+              <label for="learned"><strong>One thing I learned or realized today:</strong></label>
+              <input 
+                type="text" 
+                id="learned" 
+                name="learned"
+                placeholder="A lesson, insight, or discovery from today..."
+              />
+            </p>
+
+            <p>
+              <button type="submit">Save My Journal Entry</button>
+            </p>
+          </form>
+        </section>
+
+        <br>
+
+        <!-- Tips Section -->
+        <aside class="card">
+          <h3>Reflection Prompts</h3>
+          <p>
+            Not sure what to write? Try reflecting on these questions:
+          </p>
+          <p>
+            What made you smile today? What challenged you? What are you looking forward to?
+            How did you take care of yourself? What would you do differently?
+          </p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          <strong>Note:</strong> This is a reflection space for personal contemplation.
+          Your entries are not saved automatically.
+        </p>
+        <p>
+          <small>&copy; <span data-year></span> LifeQuest Team.</small>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
