@@ -1,1 +1,141 @@
-<p>hi</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LifeQuest - Productivity Arena</title>
+    <link rel="stylesheet" href="css/productivity.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div>
+            <h1>LifeQuest</h1>
+            <p>Level up your life skills through small daily wins.</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a data-nav href="index.html">Home</a>
+          <a data-nav href="dashboard.html">Dashboard</a>
+          <a data-nav href="money.html">Money Manager</a>
+          <a data-nav href="habits.html">Healthy Habits</a>
+          <a data-nav href="productivity.html" aria-current="page">
+            Productivity Arena
+          </a>
+          <a data-nav href="achievements.html">Achievements</a>
+          <a data-nav href="about.html">About</a>
+          <a data-nav href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+
+        <!-- Productivity Summary -->
+        <header class="budget-summary">
+          <h2>Productivity Arena</h2>
+
+          <section aria-labelledby="goals-heading">
+            <h3 id="goals-heading">Your Goals</h3>
+
+            <section class="grid" id="goalsGrid">
+              <article class="card add-expense" id="addGoalCard">
+                <div class="plus">+</div>
+                <p>New Goal</p>
+              </article>
+            </section>
+          </section>
+        </header>
+
+        <p class="remaining-text" style="font-size: 25px;">
+            Current Streak:
+            <strong><span id="streakCount">0</span> days</strong>
+          </p>
+
+          <p class="remaining-text" style="font-size: 19px;">
+            Points Earned:
+            <strong><span id="points">0</span></strong>
+          </p>
+
+          <p class="budget-feedback" id="productivityFeedback">
+            Stay focused. Every session counts.
+          </p>
+          
+        <hr>
+
+        <section class="card">
+          <h3 style="font-size: 25px;"><center>Focus Sessions</center></h3>
+          <p><center>Use focus sessions to earn points.</center></p>
+
+          <p><center>
+            Sessions Completed:
+            <strong><span id="sessionCount">0</span></strong>
+          </p></center>
+
+          <button id="startSessionBtn">Start Focus Session</button>
+        </section>
+
+        <!-- Milestones -->
+        <section aria-labelledby="milestones-heading">
+          <h3 id="milestones-heading">Milestones</h3>
+
+          <section class="grid">
+            <article class="card">
+              <h4>🔥 3-Day Streak</h4>
+              <p>Earn +50 bonus points</p>
+            </article>
+
+            <article class="card">
+              <h4>⚡ 5 Focus Sessions</h4>
+              <p>Unlock Productivity Badge</p>
+            </article>
+
+            <article class="card">
+              <h4>🏆 10 Goals Completed</h4>
+              <p>Reach Legend Status</p>
+            </article>
+          </section>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Goal Modal -->
+    <div class="modal" id="goalModal" hidden>
+      <div class="modal-content card">
+        <h3>New Goal</h3>
+
+        <label>
+          Goal Name
+          <input id="goalName" type="text" placeholder="Finish homework" />
+        </label>
+
+        <label>
+          Category
+          <select id="goalCategory">
+            <option>Study</option>
+            <option>Work</option>
+            <option>Health</option>
+            <option>Personal</option>
+          </select>
+        </label>
+
+        <label>
+          Estimated Sessions
+          <input id="goalSessions" type="number" min="1" value="1" />
+        </label>
+
+        <button id="saveGoalBtn">Add Goal</button>
+      </div>
+    </div>
+
+    <script src="js/productivity.js"></script>
+  </body>
+</html>

@@ -1,7 +1,3 @@
-/* =========================
-   Money Manager Logic
-   ========================= */
-
 // Income
 const incomeInput = document.getElementById("incomeInput");
 const setIncomeBtn = document.getElementById("setIncomeBtn");
