@@ -38,7 +38,6 @@
     <main id="main">
       <div class="container">
 
-        <!-- Productivity Summary -->
         <header class="budget-summary">
           <h2>Productivity Arena</h2>
 
@@ -54,12 +53,15 @@
           </section>
         </header>
 
-        <p class="remaining-text" style="font-size: 25px;">
+        <section aria-labelledby="stats-heading">
+          <h3 id="stats-heading" class="visually-hidden">Stats</h3>
+
+          <p class="remaining-text">
             Current Streak:
             <strong><span id="streakCount">0</span> days</strong>
           </p>
 
-          <p class="remaining-text" style="font-size: 19px;">
+          <p class="remaining-text">
             Points Earned:
             <strong><span id="points">0</span></strong>
           </p>
@@ -67,22 +69,22 @@
           <p class="budget-feedback" id="productivityFeedback">
             Stay focused. Every session counts.
           </p>
-          
-        <hr>
+        </section>
 
-        <section class="card">
-          <h3 style="font-size: 25px;"><center>Focus Sessions</center></h3>
-          <p><center>Use focus sessions to earn points.</center></p>
+        <hr />
 
-          <p><center>
+        <section class="card" aria-labelledby="focus-heading">
+          <h3 id="focus-heading">Focus Sessions</h3>
+          <p>Use focus sessions to earn points.</p>
+
+          <p>
             Sessions Completed:
             <strong><span id="sessionCount">0</span></strong>
-          </p></center>
+          </p>
 
           <button id="startSessionBtn">Start Focus Session</button>
         </section>
 
-        <!-- Milestones -->
         <section aria-labelledby="milestones-heading">
           <h3 id="milestones-heading">Milestones</h3>
 
@@ -99,7 +101,7 @@
 
             <article class="card">
               <h4>🏆 10 Goals Completed</h4>
-              <p>Reach Legend Status</p>
+              <p>X</p>
             </article>
           </section>
         </section>
@@ -107,7 +109,6 @@
       </div>
     </main>
 
-    <!-- Goal Modal -->
     <div class="modal" id="goalModal" hidden>
       <div class="modal-content card">
         <h3>New Goal</h3>
