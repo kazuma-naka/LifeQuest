@@ -109,6 +109,7 @@ main {
 }
 
 .card {
+  text-align: center;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 16px;
