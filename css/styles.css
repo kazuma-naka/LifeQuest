@@ -136,29 +136,3 @@ main {
 small {
   color: var(--muted);
 }
-
-/* Profile Section Styles */
-.profile-section {
-  margin-bottom: 1.5rem;
-}
-
-.profile-content {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-}
-
-.profile-info p {
-  margin: 0.5rem 0;
-}
-
-/* Phase Note Styles */
-.phase-note {
-  margin-top: 1rem;
-}
