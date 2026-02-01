@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -25,11 +25,12 @@
 
         <nav class="nav" aria-label="Primary">
           <a data-nav href="index.html">Home</a>
-          <a data-nav href="dashboard.html">Dashboard</a>
           <a data-nav href="money.html">Money Manager</a>
           <a data-nav href="habits.html">Healthy Habits</a>
           <a data-nav href="productivity.html">Productivity Arena</a>
           <a data-nav href="achievements.html">Achievements</a>
+          <a data-nav href="quiz.html">Quiz Game</a>
+          <a data-nav href="journaling.html">Journaling</a>
           <a data-nav href="about.html">About</a>
           <a data-nav href="contact.html">Contact</a>
         </nav>
@@ -48,13 +49,26 @@
           </p>
         </header>
 
-        <section class="grid" aria-label="Core modules">
-          <article class="card">
-            <h3>Home Dashboard</h3>
-            <p>View your avatar, current levels, and recent achievements.</p>
-            <p><a href="dashboard.html">Open Dashboard</a></p>
-          </article>
+        <section class="card profile-section">
+          <h3>Your Profile</h3>
+          <div class="profile-content">
+            <div
+              class="brand-mark profile-avatar"
+              role="img"
+              aria-label="User Avatar"
+            ></div>
+            <div class="profile-info">
+              <p><strong>Current Level:</strong> Beginner</p>
+              <p><strong>Total XP:</strong> 0 points</p>
+              <p>
+                <strong>Recent Achievements:</strong> None yet - Start your
+                journey!
+              </p>
+            </div>
+          </div>
+        </section>
 
+        <section class="grid" aria-label="Core modules">
           <article class="card">
             <h3>Money Manager</h3>
             <p>Track income/expenses and visualize your remaining budget.</p>
@@ -77,6 +91,18 @@
             <h3>Achievements</h3>
             <p>Earn badges and rewards for consistent progress.</p>
             <p><a href="achievements.html">Open Achievements</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Quiz Game</h3>
+            <p>Test your focus and reaction speed with color challenges.</p>
+            <p><a href="quiz.html">Open Quiz Game</a></p>
+          </article>
+
+          <article class="card">
+            <h3>Journaling</h3>
+            <p>Reflect on your day and track your thoughts and emotions.</p>
+            <p><a href="journaling.html">Open Journaling</a></p>
           </article>
         </section>
 

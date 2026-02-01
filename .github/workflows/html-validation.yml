@@ -1,0 +1,23 @@
+name: HTML validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate-html:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Download vnu.jar
+        run: curl -L -o vnu.jar https://github.com/validator/validator/releases/latest/download/vnu.jar
+
+      - name: Validate HTML
+        run: java -jar vnu.jar --skip-non-html --errors-only --Werror .
