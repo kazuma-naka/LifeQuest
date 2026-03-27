@@ -1,0 +1,118 @@
+/* ── Form layout (Flexbox, Phase 2 #32) ── */
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.card form p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.card form input,
+.card form select,
+.card form textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.card form input:focus,
+.card form select:focus,
+.card form textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.card form button[type="submit"] {
+  align-self: flex-start;
+  padding: 0.75rem 1.75rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.card form button[type="submit"]:hover {
+  background: #7c3aed;
+}
+
+/* ── Phase 3 additions ── */
+
+/* character counter */
+.char-counter {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* inline field error */
+.field-error {
+  border-color: #ef4444 !important;
+  outline-color: #ef4444 !important;
+}
+
+.error-msg {
+  color: #ef4444;
+  font-size: 0.85rem;
+}
+
+/* form-level message */
+#form-message {
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+#form-message.success {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+
+#form-message.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
+/* saved entry items */
+.entry-item {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.entry-item p {
+  margin: 0.3rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* card spacing */
+.card + .card {
+  margin-top: 1.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .card form button[type="submit"] {
+    width: 100%;
+    align-self: stretch;
+  }
+}

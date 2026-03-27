@@ -1,256 +1,182 @@
-// Quiz Game Logic
-
-// Seven colors for the game
+// ── Game Data ───────────────────────────────────────────────────
 const colors = {
-  red: '#FF0000',
-  blue: '#0000FF',
-  green: '#008000',
-  yellow: '#FFD700',
-  purple: '#800080',
-  orange: '#FF8C00',
-  pink: '#FF69B4'
+  red: '#FF0000', blue: '#0000FF', green: '#008000',
+  yellow: '#FFD700', purple: '#800080', orange: '#FF8C00', pink: '#FF69B4'
 };
-
-const colorNames = Object.keys(colors);
-
-// Dark colors (good for text on light background)
-const darkColors = ['red', 'blue', 'green', 'purple', 'orange'];
-
-// Light colors (good for background with dark text)
-const lightColors = ['yellow', 'pink'];
-
-// Additional light backgrounds
-const lightBackgrounds = {
-  lightblue: '#ADD8E6',
-  lightgreen: '#90EE90',
-  lightyellow: '#FFFFE0',
-  lightpink: '#FFB6C1',
-  lightorange: '#FFE4B5'
+const colorNames    = Object.keys(colors);
+const darkColors    = ['red', 'blue', 'green', 'purple', 'orange'];
+const lightBgs      = {
+  lightblue: '#ADD8E6', lightgreen: '#90EE90', lightyellow: '#FFFFE0',
+  lightpink: '#FFB6C1', lightorange: '#FFE4B5'
 };
+const lightBgKeys   = Object.keys(lightBgs);
 
-// Game state
-let currentRound = 0;
-let score = 0;
-let correctAnswer = '';
-let gameActive = false;
+// ── Game State ──────────────────────────────────────────────────
+let currentRound = 0, score = 0, correctAnswer = '', gameActive = false;
 
-// DOM elements
-const startScreen = document.getElementById('start-screen');
-const playScreen = document.getElementById('play-screen');
+// ── DOM References ──────────────────────────────────────────────
+const startScreen  = document.getElementById('start-screen');
+const playScreen   = document.getElementById('play-screen');
 const resultScreen = document.getElementById('result-screen');
 const statsSection = document.getElementById('stats-section');
+const startBtn     = document.getElementById('start-btn');
+const restartBtn   = document.getElementById('restart-btn');
+const roundDisplay = document.getElementById('current-round');
+const scoreDisplay = document.getElementById('current-score');
+const colorCard    = document.getElementById('color-card');
+const colorText    = document.getElementById('color-text');
+const optionsEl    = document.getElementById('options');
+const finalScore   = document.getElementById('final-score');
+const accuracyEl   = document.getElementById('accuracy');
+const encourageEl  = document.getElementById('encouragement-message');
+const dispScore    = document.getElementById('display-score');
+const dispAcc      = document.getElementById('display-accuracy');
+const feedbackEl   = document.getElementById('feedback-message');
 
-const startBtn = document.getElementById('start-btn');
-const restartBtn = document.getElementById('restart-btn');
+// ── Issue #47: mouseover on Start button ────────────────────────
+startBtn.addEventListener('mouseover', function () { this.textContent = "Let's Go! 🎮"; });
+startBtn.addEventListener('mouseout',  function () { this.textContent = 'Start Game'; });
 
-const currentRoundDisplay = document.getElementById('current-round');
-const currentScoreDisplay = document.getElementById('current-score');
-const colorCard = document.getElementById('color-card');
-const colorText = document.getElementById('color-text');
-const optionsContainer = document.getElementById('options');
+// ── Issue #47: keyboard — press 1/2/3 to pick an option ────────
+document.addEventListener('keydown', function (e) {
+  if (!gameActive) return;
+  const idx = { '1': 0, '2': 1, '3': 2 }[e.key];
+  if (idx !== undefined) {
+    const btns = document.querySelectorAll('.option-btn:not([disabled])');
+    if (btns[idx]) btns[idx].click();
+  }
+});
 
-const finalScoreDisplay = document.getElementById('final-score');
-const accuracyDisplay = document.getElementById('accuracy');
-const encouragementMessage = document.getElementById('encouragement-message');
-
-const displayScore = document.getElementById('display-score');
-const displayAccuracy = document.getElementById('display-accuracy');
-const feedbackMessage = document.getElementById('feedback-message');
-
-// Event listeners
+// ── Event Listeners ─────────────────────────────────────────────
 startBtn.addEventListener('click', startGame);
-restartBtn.addEventListener('click', restartGame);
+restartBtn.addEventListener('click', startGame);
 
-// Start game
+// ── Start / Restart ─────────────────────────────────────────────
 function startGame() {
-  currentRound = 0;
-  score = 0;
-  gameActive = true;
-  
+  currentRound = 0; score = 0; gameActive = true;
   startScreen.classList.add('hidden');
   playScreen.classList.remove('hidden');
   resultScreen.classList.add('hidden');
-  
   nextRound();
 }
 
-// Restart game
-function restartGame() {
-  startGame();
-}
-
-// Generate next round
+// ── Next Round ──────────────────────────────────────────────────
 function nextRound() {
-  if (currentRound >= 20) {
-    endGame();
-    return;
-  }
-  
+  if (currentRound >= 20) { endGame(); return; }
+
   currentRound++;
-  currentRoundDisplay.textContent = currentRound;
-  currentScoreDisplay.textContent = score;
-  
-  // Determine difficulty based on round
-  let backgroundColor, textColor, textWord;
-  
+  roundDisplay.textContent = currentRound;  // DOM: textContent
+  scoreDisplay.textContent = score;
+
+  // Determine colors by difficulty
+  let bg, textColor, word;
   if (currentRound <= 2) {
-    // Rounds 1-2: White background, dark text color matches word
-    backgroundColor = '#FFFFFF';
-    textWord = getRandomColor();
-    textColor = colors[textWord];
+    bg = '#FFFFFF'; word = randomColor(); textColor = colors[word];
   } else if (currentRound <= 7) {
-    // Rounds 3-7: Light background, dark text color matches word
-    textWord = getRandomColor();
-    textColor = colors[textWord];
-    
-    // Use light background colors
-    const lightBgKeys = Object.keys(lightBackgrounds);
-    const randomBgKey = lightBgKeys[Math.floor(Math.random() * lightBgKeys.length)];
-    backgroundColor = lightBackgrounds[randomBgKey];
-    
+    word = randomColor(); textColor = colors[word];
+    bg = lightBgs[lightBgKeys[Math.floor(Math.random() * lightBgKeys.length)]];
   } else {
-    // Rounds 8-20: Light background, any dark text color, any word
-    textWord = getRandomColor();
-    
-    // Get a dark color for text (easier to read)
-    const darkColorName = darkColors[Math.floor(Math.random() * darkColors.length)];
-    textColor = colors[darkColorName];
-    
-    // Get light background
-    const lightBgKeys = Object.keys(lightBackgrounds);
-    const randomBgKey = lightBgKeys[Math.floor(Math.random() * lightBgKeys.length)];
-    backgroundColor = lightBackgrounds[randomBgKey];
+    word = randomColor();
+    textColor = colors[darkColors[Math.floor(Math.random() * darkColors.length)]];
+    bg = lightBgs[lightBgKeys[Math.floor(Math.random() * lightBgKeys.length)]];
   }
-  
-  // Set correct answer (what the TEXT says)
-  correctAnswer = textWord;
-  
-  // Update display
-  colorCard.style.backgroundColor = backgroundColor;
+  correctAnswer = word;
+
+  // DOM: update styles and text
+  colorCard.style.backgroundColor = bg;
   colorText.style.color = textColor;
-  colorText.textContent = textWord.toUpperCase();
-  
-  // Generate options
-  generateOptions();
+  colorText.textContent = word.toUpperCase();
+
+  // Issue #49: setTimeout — fade in color card each round
+  colorCard.style.opacity = '0';
+  setTimeout(function () {
+    colorCard.style.transition = 'opacity 0.25s';
+    colorCard.style.opacity = '1';
+  }, 10);
+
+  buildOptions();
 }
 
-// Get random color name
-function getRandomColor() {
+function randomColor() {
   return colorNames[Math.floor(Math.random() * colorNames.length)];
 }
 
-// Generate three options including the correct answer
-function generateOptions() {
-  optionsContainer.innerHTML = '';
-  
-  // Create options array with correct answer
-  const options = [correctAnswer];
-  
-  // Add two more random options (different from correct answer)
-  while (options.length < 3) {
-    const randomColor = getRandomColor();
-    if (!options.includes(randomColor)) {
-      options.push(randomColor);
-    }
+// ── Build Option Buttons ─────────────────────────────────────────
+// Issue #46 (DOM): createElement + appendChild
+function buildOptions() {
+  optionsEl.innerHTML = '';
+  const opts = [correctAnswer];
+  while (opts.length < 3) {
+    const c = randomColor();
+    if (!opts.includes(c)) opts.push(c);
   }
-  
-  // Shuffle options
-  options.sort(() => Math.random() - 0.5);
-  
-  // Create buttons
-  options.forEach(colorName => {
-    const button = document.createElement('button');
-    button.className = 'option-btn';
-    button.textContent = colorName.toUpperCase();
-    button.addEventListener('click', () => selectOption(colorName, button));
-    optionsContainer.appendChild(button);
+  opts.sort(() => Math.random() - 0.5);
+
+  opts.forEach(function (name) {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.textContent = name.toUpperCase();
+    btn.dataset.color = name;
+
+    // Issue #47: mouseover on option buttons
+    btn.addEventListener('mouseover', function () {
+      if (!btn.disabled) btn.style.transform = 'translateY(-2px)';
+    });
+    btn.addEventListener('mouseout', function () {
+      btn.style.transform = '';
+    });
+
+    btn.addEventListener('click', function () { pickOption(name, btn); });
+    optionsEl.appendChild(btn);
   });
 }
 
-// Handle option selection
-function selectOption(selectedColor, button) {
+// ── Handle Answer ────────────────────────────────────────────────
+function pickOption(selected, btn) {
   if (!gameActive) return;
-  
-  // Disable all buttons
-  const allButtons = document.querySelectorAll('.option-btn');
-  allButtons.forEach(btn => btn.disabled = true);
-  
-  // Check if correct
-  if (selectedColor === correctAnswer) {
+  document.querySelectorAll('.option-btn').forEach(function (b) { b.disabled = true; });
+
+  if (selected === correctAnswer) {
     score++;
-    button.classList.add('correct');
-    currentScoreDisplay.textContent = score;
+    btn.classList.add('correct');
+    scoreDisplay.textContent = score; // DOM: textContent
   } else {
-    button.classList.add('wrong');
-    // Highlight correct answer
-    allButtons.forEach(btn => {
-      if (btn.textContent.toLowerCase() === correctAnswer) {
-        btn.classList.add('correct');
-      }
+    btn.classList.add('wrong');
+    document.querySelectorAll('.option-btn').forEach(function (b) {
+      if (b.dataset.color === correctAnswer) b.classList.add('correct');
     });
   }
-  
-  // Wait 1 second before next round
-  setTimeout(() => {
-    nextRound();
-  }, 1000);
+
+  // Issue #49: setTimeout — wait before next round
+  setTimeout(nextRound, 1000);
 }
 
+// ── End Game ─────────────────────────────────────────────────────
 function endGame() {
   gameActive = false;
-  
   playScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
-  
-  // Calculate accuracy
-  const accuracy = Math.round((score / 20) * 100);
-  
-  // Update result displays
-  finalScoreDisplay.textContent = score;
-  accuracyDisplay.textContent = accuracy;
-  
-  // Generate encouragement message
-  const message = getEncouragementMessage(accuracy);
-  encouragementMessage.textContent = message;
-  
-  // Show stats section
+
+  const acc = Math.round((score / 20) * 100);
+  finalScore.textContent = score;       // DOM: textContent
+  accuracyEl.textContent = acc;
+  encourageEl.textContent = getMessage(acc);
+
   statsSection.classList.remove('hidden');
-  displayScore.textContent = score;
-  displayAccuracy.textContent = accuracy + '%';
-  
-  // Generate feedback
-  const feedback = getFeedbackMessage(accuracy);
-  feedbackMessage.textContent = feedback;
+  dispScore.textContent = score;
+  dispAcc.textContent = acc + '%';
+  feedbackEl.textContent = getFeedback(acc);
 }
 
-
-function getEncouragementMessage(accuracy) {
-  if (accuracy === 100) {
-    return 'Perfect Score! You have incredible focus and attention to detail!';
-  } else if (accuracy >= 90) {
-    return 'Outstanding! Your cognitive flexibility is impressive!';
-  } else if (accuracy >= 80) {
-    return 'Great job! You showed excellent concentration!';
-  } else if (accuracy >= 70) {
-    return 'Well done! You\'re getting better at managing distractions!';
-  } else if (accuracy >= 60) {
-    return 'Good effort! Keep practicing to improve your focus!';
-  } else if (accuracy >= 50) {
-    return 'Nice try! This game is tricky, but you\'re learning!';
-  } else {
-    return 'Every attempt makes you stronger! Try again and you\'ll improve!';
-  }
+function getMessage(acc) {
+  if (acc === 100) return 'Perfect Score! Incredible focus!';
+  if (acc >= 80)  return 'Great job! Excellent concentration!';
+  if (acc >= 60)  return 'Good effort! Keep practicing!';
+  return "Every attempt makes you stronger! Try again!";
 }
 
-// Get detailed feedback message
-function getFeedbackMessage(accuracy) {
-  if (accuracy >= 90) {
-    return 'Your ability to ignore visual distractions and focus on the task is exceptional. This skill is valuable in many real-world situations!';
-  } else if (accuracy >= 75) {
-    return 'You demonstrated strong cognitive control. With a bit more practice, you\'ll master this challenge completely!';
-  } else if (accuracy >= 60) {
-    return 'You\'re making progress! The Stroop Effect shows how our brain processes information. Keep training your focus!';
-  } else {
-    return 'This game tests a challenging aspect of cognition. Don\'t worry - most people find it difficult at first. Practice will help you improve significantly!';
-  }
+function getFeedback(acc) {
+  if (acc >= 75) return 'Strong cognitive control — keep it up!';
+  if (acc >= 50) return 'The Stroop Effect is tricky. Practice will help!';
+  return 'Most people find this difficult at first. Try again!';
 }
