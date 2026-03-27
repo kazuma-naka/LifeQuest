@@ -9,6 +9,7 @@
       content="Reflect on your day and track your thoughts and emotions."
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/journaling.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -39,26 +40,28 @@
 
     <main id="main">
       <div class="container">
-        <!-- Introduction Section -->
+
+        <!-- Introduction -->
         <header>
           <p class="kicker">Daily Reflection • Mindfulness • Self-Discovery</p>
           <h2>Your Daily Journal</h2>
           <p>
-            Take a moment to reflect on your day. Use this space to express your
-            thoughts, feelings, and experiences freely.
+            Take a moment to reflect on your day. Use this space to express
+            your thoughts, feelings, and experiences freely.
           </p>
         </header>
+
+        <!-- Form-level message (shown/hidden by JS) -->
+        <p id="form-message" hidden></p>
 
         <!-- Journal Entry Form -->
         <section class="card">
           <h3>Today's Reflection</h3>
 
-          <form>
-            <!-- Mood Selection -->
+          <form id="journal-form" novalidate>
+
             <p>
-              <label for="mood"
-                ><strong>How are you feeling right now?</strong></label
-              >
+              <label for="mood"><strong>How are you feeling right now?</strong></label>
               <select id="mood" name="mood">
                 <option value="">-- Select your mood --</option>
                 <option value="amazing">Amazing</option>
@@ -72,24 +75,21 @@
               </select>
             </p>
 
-            <!-- Main Reflection -->
             <p>
-              <label for="reflection"
-                ><strong>What's on your mind today?</strong></label
-              >
+              <label for="reflection"><strong>What's on your mind today?</strong></label>
               <textarea
                 id="reflection"
                 name="reflection"
                 rows="8"
-                placeholder="Write about your thoughts, feelings, experiences, or anything you want to express..."
+                maxlength="500"
+                placeholder="Write about your thoughts, feelings, experiences..."
               ></textarea>
+              <!-- char counter updated by JS -->
+              <span id="char-counter" class="char-counter">0 / 500</span>
             </p>
 
-            <!-- One Thing Learned -->
             <p>
-              <label for="learned"
-                ><strong>One thing I learned or realized today:</strong></label
-              >
+              <label for="learned"><strong>One thing I learned or realized today:</strong></label>
               <input
                 type="text"
                 id="learned"
@@ -104,16 +104,23 @@
           </form>
         </section>
 
-        <!-- Tips Section -->
+        <!-- Saved entries appear here (populated by JS) -->
+        <section class="card" id="entry-section" hidden>
+          <h3>Saved This Session</h3>
+          <div id="entry-list"></div>
+        </section>
+
+        <!-- Reflection Prompts -->
         <aside class="card">
           <h3>Reflection Prompts</h3>
           <p>Not sure what to write? Try reflecting on these questions:</p>
           <p>
-            What made you smile today? What challenged you? What are you looking
-            forward to? How did you take care of yourself? What would you do
-            differently?
+            What made you smile today? What challenged you? What are you
+            looking forward to? How did you take care of yourself? What
+            would you do differently?
           </p>
         </aside>
+
       </div>
     </main>
 
@@ -134,5 +141,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/journaling.js"></script>
   </body>
 </html>
