@@ -1,175 +1,176 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LifeQuest - Achievements</title>
-    <meta
-      name="description"
-      content="Unlock badges and rewards for consistent progress in health, productivity and money management."
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LifeQuest - Achievements</title>
+  <meta
+    name="description"
+    content="Unlock badges and rewards for consistent progress in health, productivity and money management."
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-          <div class="brand-mark" aria-hidden="true"></div>
-          <div>
-            <h1>LifeQuest</h1>
-            <p>Level up your life skills through small daily wins.</p>
-          </div>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <h1>LifeQuest</h1>
+          <p>Level up your life skills through small daily wins.</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="dashboard.html">Dashboard</a>
+        <a data-nav href="money.html">Money Manager</a>
+        <a data-nav href="habits.html">Healthy Habits</a>
+        <a data-nav href="productivity.html">Productivity Arena</a>
+        <a data-nav href="achievements.html" aria-current="page">Achievements</a>
+        <a data-nav href="quiz.html">Quiz Game</a>
+        <a data-nav href="journaling.html">Journaling</a>
+        <a data-nav href="about.html">About</a>
+        <a data-nav href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header>
+        <p class="kicker">Earn &amp; celebrate</p>
+        <h2>Your Achievement Dashboard</h2>
+      </header>
+
+      <section class="card">
+        <h3>Progress Overview</h3>
+        <p><strong>Total Badges Unlocked:</strong> 7/17 | <strong>Points Earned:</strong> 317/500</p>
+        <p>
+          Track habits in
+          <a href="habits.html"><strong>Healthy Habits</strong></a>
+          to unlock more badges.
+        </p>
+      </section>
+
+      <section class="card achievements-grid section-spacing">
+        <h3 class="full-span">Health &amp; Wellness Badges</h3>
+
+        <div class="achievement-item unlocked">
+          <div class="achievement-icon" aria-hidden="true">🌅</div>
+          <dl>
+            <dt>
+              Early Bird
+              <small class="status-unlocked">UNLOCKED</small>
+            </dt>
+            <dd>Wake up before 8 AM for 5 consecutive days.</dd>
+          </dl>
         </div>
 
-        <nav class="nav" aria-label="Primary">
-          <a data-nav href="index.html">Home</a>
-          <a data-nav href="dashboard.html">Dashboard</a>
-          <a data-nav href="money.html">Money Manager</a>
-          <a data-nav href="habits.html">Healthy Habits</a>
-          <a data-nav href="productivity.html">Productivity Arena</a>
-          <a data-nav href="achievements.html" aria-current="page">Achievements</a>
-          <a data-nav href="quiz.html">Quiz Game</a>
-          <a data-nav href="journaling.html">Journaling</a>
-          <a data-nav href="about.html">About</a>
-          <a data-nav href="contact.html">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="main">
-      <div class="container">
-        <header>
-          <p class="kicker">Earn &amp; celebrate</p>
-          <h2>Your Achievement Dashboard</h2>
-        </header>
-
-        <section class="card">
-          <h3>Progress Overview</h3>
-          <p><strong>Total Badges Unlocked:</strong> 7/17 | <strong>Points Earned:</strong> 317/500</p>
-          <p>
-            Track habits in
-            <a href="habits.html"><strong>Healthy Habits</strong></a>
-            to unlock more badges.
-          </p>
-        </section>
-
-        <section class="card achievements-grid section-spacing">
-          <h3 class="full-span">Health &amp; Wellness Badges</h3>
-
-          <div class="achievement-item unlocked">
-            <div class="achievement-icon" aria-hidden="true">🌅</div>
-            <dl>
-              <dt>
-                Early Bird
-                <small class="status-unlocked">UNLOCKED</small>
-              </dt>
-              <dd>Wake up before 8 AM for 5 consecutive days.</dd>
-            </dl>
-          </div>
-
-          <div class="achievement-item in-progress">
-            <div class="achievement-icon" aria-hidden="true">💧</div>
-            <dl>
-              <dt>
-                Hydration Star
-                <small class="status-progress">IN PROGRESS (5/7)</small>
-              </dt>
-              <dd>
-                Drink 2000ml or more of water daily for 7 days.
-                Track this in <a href="habits.html">Healthy Habits</a>.
-              </dd>
-            </dl>
-          </div>
-
-          <div class="achievement-item locked">
-            <div class="achievement-icon" aria-hidden="true">🏋️</div>
-            <dl>
-              <dt>
-                Fitness Enthusiast
-                <small class="status-locked">LOCKED</small>
-              </dt>
-              <dd>Complete 15 exercise sessions in one month.</dd>
-            </dl>
-          </div>
-
-          <div class="achievement-item unlocked">
-            <div class="achievement-icon" aria-hidden="true">😴</div>
-            <dl>
-              <dt>
-                Restful Sleeper
-                <small class="status-unlocked">UNLOCKED</small>
-              </dt>
-              <dd>
-                Maintain 7 to 9 hours of sleep for 7 days.
-                Track this in <a href="habits.html">Healthy Habits</a>.
-              </dd>
-            </dl>
-          </div>
-        </section>
-
-        <section class="card achievements-grid section-spacing">
-          <h3 class="full-span">Productivity &amp; Finance Badges</h3>
-
-          <div class="achievement-item locked">
-            <div class="achievement-icon" aria-hidden="true">💰</div>
-            <dl>
-              <dt>
-                Budget Boss
-                <small class="status-locked">LOCKED</small>
-              </dt>
-              <dd>
-                Stick to your monthly budget for 30 days.
-                Track this in <a href="money.html">Money Manager</a>.
-              </dd>
-            </dl>
-          </div>
-
-          <div class="achievement-item in-progress">
-            <div class="achievement-icon" aria-hidden="true">✅</div>
-            <dl>
-              <dt>
-                Task Pro
-                <small class="status-progress">IN PROGRESS (3/5)</small>
-              </dt>
-              <dd>
-                Complete all daily tasks for 5 consecutive days.
-                Track this in <a href="productivity.html">Productivity Arena</a>.
-              </dd>
-            </dl>
-          </div>
-        </section>
-
-        <aside class="card section-spacing">
-          <h3>How to Unlock More Badges</h3>
-          <ul>
-            <li>Log your daily habits in <a href="habits.html">Healthy Habits</a> every day.</li>
-            <li>Maintain streaks such as 7 or more days of consistent tracking.</li>
-            <li>Reach milestones, for example 30 days of meeting your water intake goal.</li>
-          </ul>
-        </aside>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>
-          <strong>Credits:</strong>
-          Icons from <a href="https://www.flaticon.com/">Flaticon</a>.
-          All visual references are used for educational purposes.
-        </p>
-
-        <div class="footer-credits">
-          <p>All assets used are for educational purposes only.</p>
+        <div class="achievement-item in-progress">
+          <div class="achievement-icon" aria-hidden="true">💧</div>
+          <dl>
+            <dt>
+              Hydration Star
+              <small class="status-progress">IN PROGRESS (5/7)</small>
+            </dt>
+            <dd>
+              Drink 2000ml or more of water daily for 7 days.
+              Track this in <a href="habits.html">Healthy Habits</a>.
+            </dd>
+          </dl>
         </div>
 
-        <p>
-          <small>&copy; <span data-year></span> LifeQuest Team.</small>
-        </p>
-      </div>
-    </footer>
+        <div class="achievement-item locked">
+          <div class="achievement-icon" aria-hidden="true">🏋️</div>
+          <dl>
+            <dt>
+              Fitness Enthusiast
+              <small class="status-locked">LOCKED</small>
+            </dt>
+            <dd>Complete 15 exercise sessions in one month.</dd>
+          </dl>
+        </div>
 
-    <script src="js/main.js"></script>
-  </body>
+        <div class="achievement-item unlocked">
+          <div class="achievement-icon" aria-hidden="true">😴</div>
+          <dl>
+            <dt>
+              Restful Sleeper
+              <small class="status-unlocked">UNLOCKED</small>
+            </dt>
+            <dd>
+              Maintain 7 to 9 hours of sleep for 7 days.
+              Track this in <a href="habits.html">Healthy Habits</a>.
+            </dd>
+          </dl>
+        </div>
+      </section>
+
+      <section class="card achievements-grid section-spacing">
+        <h3 class="full-span">Productivity &amp; Finance Badges</h3>
+
+        <div class="achievement-item locked">
+          <div class="achievement-icon" aria-hidden="true">💰</div>
+          <dl>
+            <dt>
+              Budget Boss
+              <small class="status-locked">LOCKED</small>
+            </dt>
+            <dd>
+              Stick to your monthly budget for 30 days.
+              Track this in <a href="money.html">Money Manager</a>.
+            </dd>
+          </dl>
+        </div>
+
+        <div class="achievement-item in-progress">
+          <div class="achievement-icon" aria-hidden="true">✅</div>
+          <dl>
+            <dt>
+              Task Pro
+              <small class="status-progress">IN PROGRESS (3/5)</small>
+            </dt>
+            <dd>
+              Complete all daily tasks for 5 consecutive days.
+              Track this in <a href="productivity.html">Productivity Arena</a>.
+            </dd>
+          </dl>
+        </div>
+      </section>
+
+      <aside class="card section-spacing">
+        <h3>How to Unlock More Badges</h3>
+        <ul>
+          <li>Log your daily habits in <a href="habits.html">Healthy Habits</a> every day.</li>
+          <li>Maintain streaks such as 7 or more days of consistent tracking.</li>
+          <li>Reach milestones, for example 30 days of meeting your water intake goal.</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        <strong>Credits:</strong>
+        Icons from <a href="https://www.flaticon.com/">Flaticon</a>.
+        All visual references are used for educational purposes.
+      </p>
+
+      <div class="footer-credits">
+        <p>All assets used are for educational purposes only.</p>
+      </div>
+
+      <p>
+        <small>&copy; <span data-year></span> LifeQuest Team.</small>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/achievements.js"></script>
+</body>
 </html>

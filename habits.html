@@ -1,195 +1,196 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LifeQuest - Healthy Habits</title>
-    <meta
-      name="description"
-      content="Track sleep, water intake, exercise and healthy meals to build consistent wellness habits."
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LifeQuest - Healthy Habits</title>
+  <meta
+    name="description"
+    content="Track sleep, water intake, exercise and healthy meals to build consistent wellness habits."
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-    <header class="site-header">
-      <div class="container">
-        <div class="brand">
-          <div class="brand-mark" aria-hidden="true"></div>
-          <div>
-            <h1>LifeQuest</h1>
-            <p>Level up your life skills through small daily wins.</p>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <h1>LifeQuest</h1>
+          <p>Level up your life skills through small daily wins.</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="dashboard.html">Dashboard</a>
+        <a data-nav href="money.html">Money Manager</a>
+        <a data-nav href="habits.html" aria-current="page">Healthy Habits</a>
+        <a data-nav href="productivity.html">Productivity Arena</a>
+        <a data-nav href="achievements.html">Achievements</a>
+        <a data-nav href="quiz.html">Quiz Game</a>
+        <a data-nav href="journaling.html">Journaling</a>
+        <a data-nav href="about.html">About</a>
+        <a data-nav href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header>
+        <p class="kicker">Track & improve</p>
+        <h2>Healthy Habits Tracker</h2>
+      </header>
+
+      <section class="card">
+        <h3>Your Health Summary</h3>
+        <p>Track key metrics to build sustainable wellness habits:</p>
+        <ul>
+          <li><strong>Sleep:</strong> 7-9 hours recommended daily</li>
+          <li><strong>Water Intake:</strong> 2000ml daily goal</li>
+          <li><strong>Physical Activity:</strong> 30 mins minimum per day</li>
+          <li>
+            <strong>Healthy Meals:</strong> Balanced nutrition with protein
+            and vegetables
+          </li>
+        </ul>
+      </section>
+
+      <section class="card habits-form" style="margin-top: 1rem">
+        <h3>Log Your Daily Habits</h3>
+        <form>
+          <div class="form-group">
+            <label for="sleep">Sleep Time (hours):</label><br />
+            <input
+              type="number"
+              id="sleep"
+              name="sleep"
+              min="0"
+              max="24"
+              step="0.5"
+              placeholder="e.g. 7.5"
+              required
+            />
           </div>
-        </div>
 
-        <nav class="nav" aria-label="Primary">
-          <a data-nav href="index.html">Home</a>
-          <a data-nav href="dashboard.html">Dashboard</a>
-          <a data-nav href="money.html">Money Manager</a>
-          <a data-nav href="habits.html" aria-current="page">Healthy Habits</a>
-          <a data-nav href="productivity.html">Productivity Arena</a>
-          <a data-nav href="achievements.html">Achievements</a>
-          <a data-nav href="quiz.html">Quiz Game</a>
-          <a data-nav href="journaling.html">Journaling</a>
-          <a data-nav href="about.html">About</a>
-          <a data-nav href="contact.html">Contact</a>
-        </nav>
-      </div>
-    </header>
+          <div class="form-group">
+            <label for="water">Water Intake (ml):</label><br />
+            <input
+              type="number"
+              id="water"
+              name="water"
+              min="0"
+              max="5000"
+              placeholder="e.g. 2000"
+            />
+          </div>
 
-    <main id="main">
-      <div class="container">
-        <header>
-          <p class="kicker">Track & improve</p>
-          <h2>Healthy Habits Tracker</h2>
-        </header>
+          <div class="form-group">
+            <fieldset>
+              <legend>Physical Activity Today</legend>
+              <p>
+                <input
+                  type="radio"
+                  id="exercise-run"
+                  name="exercise"
+                  value="running"
+                />
+                <label for="exercise-run">Running</label>
+              </p>
+              <p>
+                <input
+                  type="radio"
+                  id="exercise-walk"
+                  name="exercise"
+                  value="walking"
+                />
+                <label for="exercise-walk">Walking</label>
+              </p>
+              <p>
+                <input
+                  type="radio"
+                  id="exercise-strength"
+                  name="exercise"
+                  value="strength"
+                />
+                <label for="exercise-strength">Strength Training</label>
+              </p>
+              <p>
+                <input
+                  type="radio"
+                  id="exercise-other"
+                  name="exercise"
+                  value="other"
+                />
+                <label for="exercise-other">Other</label>
+              </p>
+              <p>
+                <input
+                  type="radio"
+                  id="exercise-none"
+                  name="exercise"
+                  value="none"
+                  checked
+                />
+                <label for="exercise-none">No Activity</label>
+              </p>
+            </fieldset>
+          </div>
 
-        <section class="card">
-          <h3>Your Health Summary</h3>
-          <p>Track key metrics to build sustainable wellness habits:</p>
-          <ul>
-            <li><strong>Sleep:</strong> 7-9 hours recommended daily</li>
-            <li><strong>Water Intake:</strong> 2000ml daily goal</li>
-            <li><strong>Physical Activity:</strong> 30 mins minimum per day</li>
-            <li>
-              <strong>Healthy Meals:</strong> Balanced nutrition with protein
-              and vegetables
-            </li>
-          </ul>
-        </section>
+          <div class="form-group">
+            <label for="meals">Number of Healthy Meals:</label><br />
+            <select id="meals" name="meals">
+              <option value="" selected disabled>Select an option</option>
+              <option value="1">1 Meal</option>
+              <option value="2">2 Meals</option>
+              <option value="3">3+ Meals</option>
+            </select>
+          </div>
 
-        <section class="card habits-form" style="margin-top: 1rem">
-          <h3>Log Your Daily Habits</h3>
-          <form>
-            <div class="form-group">
-              <label for="sleep">Sleep Time (hours):</label><br />
-              <input
-                type="number"
-                id="sleep"
-                name="sleep"
-                min="0"
-                max="24"
-                step="0.5"
-                placeholder="e.g. 7.5"
-                required
-              />
-            </div>
+          <div class="form-group">
+            <label for="notes">Wellness Notes (optional):</label><br />
+            <textarea
+              id="notes"
+              name="notes"
+              rows="6"
+              placeholder="How did you feel today? Any mental wellness activities (meditation, reading)?"
+            >
+            </textarea>
+          </div>
 
-            <div class="form-group">
-              <label for="water">Water Intake (ml):</label><br />
-              <input
-                type="number"
-                id="water"
-                name="water"
-                min="0"
-                max="5000"
-                placeholder="e.g. 2000"
-              />
-            </div>
+          <div class="form-group">
+            <button type="submit" class="btn">Save My Habits</button>
+          </div>
+        </form>
+      </section>
 
-            <div class="form-group">
-              <fieldset>
-                <legend>Physical Activity Today</legend>
-                <p>
-                  <input
-                    type="radio"
-                    id="exercise-run"
-                    name="exercise"
-                    value="running"
-                  />
-                  <label for="exercise-run">Running</label>
-                </p>
-                <p>
-                  <input
-                    type="radio"
-                    id="exercise-walk"
-                    name="exercise"
-                    value="walking"
-                  />
-                  <label for="exercise-walk">Walking</label>
-                </p>
-                <p>
-                  <input
-                    type="radio"
-                    id="exercise-strength"
-                    name="exercise"
-                    value="strength"
-                  />
-                  <label for="exercise-strength">Strength Training</label>
-                </p>
-                <p>
-                  <input
-                    type="radio"
-                    id="exercise-other"
-                    name="exercise"
-                    value="other"
-                  />
-                  <label for="exercise-other">Other</label>
-                </p>
-                <p>
-                  <input
-                    type="radio"
-                    id="exercise-none"
-                    name="exercise"
-                    value="none"
-                    checked
-                  />
-                  <label for="exercise-none">No Activity</label>
-                </p>
-              </fieldset>
-            </div>
-
-            <div class="form-group">
-              <label for="meals">Number of Healthy Meals:</label><br />
-              <select id="meals" name="meals">
-                <option value="" selected disabled>Select an option</option>
-                <option value="1">1 Meal</option>
-                <option value="2">2 Meals</option>
-                <option value="3">3+ Meals</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="notes">Wellness Notes (optional):</label><br />
-              <textarea
-                id="notes"
-                name="notes"
-                rows="6"
-                placeholder="How did you feel today? Any mental wellness activities (meditation, reading)?"
-              >
-              </textarea>
-            </div>
-
-            <div class="form-group">
-              <button type="submit" class="btn">Save My Habits</button>
-            </div>
-          </form>
-        </section>
-
-        <aside class="card" style="margin-top: 1rem">
-          <h3>Level Up Your Habits</h3>
-          <p>
-            Consistent tracking unlocks badges in the
-            <a href="achievements.html">Achievements</a> section! For example: 7
-            days of 7+ hours sleep = "Sleep Master" badge.
-          </p>
-        </aside>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p><strong>Credits:</strong> Icons from <a href="https://www.flaticon.com/">Flaticon</a> (free for commercial use).</p>
-        <div class="footer-credits">
-          <p>All assets used are for educational purposes only.</p>
-        </div>
+      <aside class="card" style="margin-top: 1rem">
+        <h3>Level Up Your Habits</h3>
         <p>
-          <small>&copy; <span data-year></span> LifeQuest Team.</small>
+          Consistent tracking unlocks badges in the
+          <a href="achievements.html">Achievements</a> section! For example: 7
+          days of 7+ hours sleep = "Sleep Master" badge.
         </p>
-      </div>
-    </footer>
+      </aside>
+    </div>
+  </main>
 
-    <script src="js/main.js"></script>
-  </body>
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Credits:</strong> Icons from <a href="https://www.flaticon.com/">Flaticon</a> (free for commercial use).</p>
+      <div class="footer-credits">
+        <p>All assets used are for educational purposes only.</p>
+      </div>
+      <p>
+        <small>&copy; <span data-year></span> LifeQuest Team.</small>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/habits.js"></script>
+</body>
 </html>
