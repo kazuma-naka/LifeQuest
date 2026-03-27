@@ -9,6 +9,9 @@
   --muted: #a9b3c7;
   --accent: #8b5cf6;
   --border: #24283a;
+  --success: #22c55e;
+  --warning: #facc15;
+  --danger: #ef4444;
   --max: 980px;
 }
 
@@ -17,9 +20,9 @@ body {
   margin: 0;
   padding: 0;
 }
+
 body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -29,14 +32,31 @@ a {
   color: var(--text);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
+
+h2 { font-size: 1.5em; font-weight: bold; color: var(--text); }
+h3 { font-size: 1.17em; font-weight: bold; color: var(--text); }
+h4 { font-size: 1em; font-weight: bold; color: var(--text); }
 
 .container {
   width: min(var(--max), calc(100% - 2rem));
   margin: 0 auto;
   padding: 1rem 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .skip-link {
@@ -48,6 +68,7 @@ a:hover {
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
 }
+
 .skip-link:focus {
   left: 1rem;
   top: 1rem;
@@ -98,7 +119,14 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.03);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.07);
+  text-decoration: none;
+}
+
 .nav a[aria-current="page"] {
   border-color: rgba(139, 92, 246, 0.6);
   box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.15) inset;
@@ -114,12 +142,26 @@ main {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.2s ease;
 }
 
 .grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
 }
 
 .kicker {
@@ -138,7 +180,8 @@ small {
   color: var(--muted);
 }
 
-input {
+input,
+select {
   width: 100%;
   margin-top: 0.25rem;
   margin-bottom: 0.75rem;
@@ -147,6 +190,22 @@ input {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.05);
   color: var(--text);
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--muted);
 }
 
 .progress-wrap {
@@ -160,7 +219,7 @@ input {
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: #22c55e;
+  background: var(--success);
   transition: width 0.3s ease, background 0.3s ease;
 }
 
@@ -172,10 +231,16 @@ button {
   background: rgba(139, 92, 246, 0.15);
   color: var(--text);
   cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
   background: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.25);
+}
+
+button:active {
+  transform: translateY(1px);
 }
 
 .budget-summary {
@@ -193,8 +258,8 @@ button:hover {
 .budget-bar {
   height: 100%;
   width: 0%;
-  background: #22c55e;
-  transition: width 0.3s ease, background 0.3s ease;
+  background: var(--success);
+  transition: width 0.4s ease, background 0.4s ease;
 }
 
 .remaining-text {
@@ -210,17 +275,9 @@ button:hover {
   color: var(--muted);
 }
 
-.budget-feedback.over {
-  color: #ef4444;
-}
-
-.budget-feedback.warning {
-  color: #facc15;
-}
-
-.budget-feedback.ok {
-  color: #22c55e;
-}
+.budget-feedback.over    { color: var(--danger); }
+.budget-feedback.warning { color: var(--warning); }
+.budget-feedback.ok      { color: var(--success); }
 
 .income-set {
   margin-top: 1rem;
@@ -233,12 +290,15 @@ button:hover {
   margin-right: auto;
 }
 
-.income-set input {
-  width: 100%;
-}
+.income-set input  { width: 100%; }
+.income-set button { width: 100%; }
 
-.income-set button {
-  width: 100%;
+@media (min-width: 768px) {
+  .income-set {
+    flex-direction: row;
+    max-width: 28rem;
+  }
+  .income-set button { width: auto; flex-shrink: 0; }
 }
 
 .add-expense {
@@ -250,14 +310,18 @@ button:hover {
   border-style: dashed;
   color: var(--muted);
   min-height: 120px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.add-expense:hover {
+  background: rgba(139, 92, 246, 0.06);
+  color: var(--text);
 }
 
 .add-expense .plus {
   font-size: 2.5rem;
   line-height: 1;
 }
-
-/* Expense cards */
 
 .delete-expense {
   position: absolute;
@@ -274,6 +338,12 @@ button:hover {
   line-height: 24px;
   text-align: center;
   cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.delete-expense:hover {
+  color: var(--danger);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .modal {
@@ -283,6 +353,7 @@ button:hover {
   display: grid;
   place-items: center;
   z-index: 1000;
+  animation: fadeIn 0.15s ease;
 }
 
 .modal[hidden] {
@@ -291,12 +362,30 @@ button:hover {
 
 .modal-content {
   width: min(320px, 90%);
+  animation: slideUp 0.2s ease;
 }
 
+.modal-content label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
 
 hr {
   border: 0;
-  height: 2px; 
+  height: 2px;
   background-color: #5c5c5c;
-  margin: 5em 0; 
+  margin: 5em 0;
 }

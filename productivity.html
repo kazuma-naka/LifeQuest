@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -13,7 +13,7 @@
     <header class="site-header">
       <div class="container">
         <div class="brand">
-          <div class="brand-mark"></div>
+          <div class="brand-mark" aria-hidden="true"></div>
           <div>
             <h1>LifeQuest</h1>
             <p>Level up your life skills through small daily wins.</p>
@@ -24,7 +24,7 @@
           <a data-nav href="index.html">Home</a>
           <a data-nav href="money.html">Money Manager</a>
           <a data-nav href="habits.html">Healthy Habits</a>
-          <a data-nav href="productivity.html">Productivity Arena</a>
+          <a data-nav href="productivity.html" aria-current="page">Productivity Arena</a>
           <a data-nav href="achievements.html">Achievements</a>
           <a data-nav href="quiz.html">Quiz Game</a>
           <a data-nav href="journaling.html">Journaling</a>
@@ -36,20 +36,21 @@
 
     <main id="main">
       <div class="container">
-        <header class="budget-summary">
-          <h2>Productivity Arena</h2>
+
+        <section class="budget-summary" aria-labelledby="arena-heading">
+          <h2 id="arena-heading">Productivity Arena</h2>
 
           <section aria-labelledby="goals-heading">
             <h3 id="goals-heading">Your Goals</h3>
 
-            <section class="grid" id="goalsGrid">
-              <article class="card add-expense" id="addGoalCard">
-                <div class="plus">+</div>
-                <p>New Goal</p>
-              </article>
-            </section>
+            <div class="grid" id="goalsGrid">
+            <button class="card add-expense" id="addExpenseCard" type="button" aria-label="Add new goal">
+              <span class="plus" aria-hidden="true">+</span>
+              <span>New Goal</span>
+            </button>
+            </div>
           </section>
-        </header>
+        </section>
 
         <section aria-labelledby="stats-heading">
           <h3 id="stats-heading" class="visually-hidden">Stats</h3>
@@ -80,13 +81,13 @@
             <strong><span id="sessionCount">0</span></strong>
           </p>
 
-          <button id="startSessionBtn">Start Focus Session</button>
+          <button id="startSessionBtn" type="button">Start Focus Session</button>
         </section>
 
         <section aria-labelledby="milestones-heading">
           <h3 id="milestones-heading">Milestones</h3>
 
-          <section class="grid">
+          <div class="grid">
             <article class="card">
               <h4>🔥 3-Day Streak</h4>
               <p>Earn +50 bonus points</p>
@@ -101,8 +102,9 @@
               <h4>🏆 10 Goals Completed</h4>
               <p>X</p>
             </article>
-          </section>
+          </div>
         </section>
+
       </div>
     </main>
 
@@ -110,12 +112,12 @@
       <div class="modal-content card">
         <h3>New Goal</h3>
 
-        <label>
+        <label for="goalName">
           Goal Name
           <input id="goalName" type="text" placeholder="Finish homework" />
         </label>
 
-        <label>
+        <label for="goalCategory">
           Category
           <select id="goalCategory">
             <option>Study</option>
@@ -125,20 +127,22 @@
           </select>
         </label>
 
-        <label>
+        <label for="goalSessions">
           Estimated Sessions
           <input id="goalSessions" type="number" min="1" value="1" />
         </label>
 
-        <button id="saveGoalBtn">Add Goal</button>
+        <button id="saveGoalBtn" type="button">Add Goal</button>
       </div>
     </div>
 
     <footer class="site-footer">
       <div class="container">
         <p>
-          © 2026 LifeQuest Team ·
-          <a href="about.html">About this project</a>
+          <strong>Credits:</strong> Productivity Arena inspired by Todoist
+        </p>
+        <p>
+          <small>&copy; <span data-year></span> LifeQuest Team.</small>
         </p>
       </div>
     </footer>

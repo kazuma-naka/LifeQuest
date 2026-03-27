@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -13,7 +13,7 @@
     <header class="site-header">
       <div class="container">
         <div class="brand">
-          <div class="brand-mark"></div>
+          <div class="brand-mark" aria-hidden="true"></div>
           <div>
             <h1>LifeQuest</h1>
             <p>Level up your life skills through small daily wins.</p>
@@ -22,7 +22,7 @@
 
         <nav class="nav" aria-label="Primary">
           <a data-nav href="index.html">Home</a>
-          <a data-nav href="money.html">Money Manager</a>
+          <a data-nav href="money.html" aria-current="page">Money Manager</a>
           <a data-nav href="habits.html">Healthy Habits</a>
           <a data-nav href="productivity.html">Productivity Arena</a>
           <a data-nav href="achievements.html">Achievements</a>
@@ -36,15 +36,16 @@
 
     <main id="main">
       <div class="container">
-        <header class="budget-summary">
-          <h2>Budget Summary</h2>
+
+        <section class="budget-summary" aria-labelledby="budget-heading">
+          <h2 id="budget-heading">Budget Summary</h2>
 
           <p class="kicker">
             Current Budget: $
             <strong><span id="currentIncome">0</span></strong>
           </p>
 
-          <div class="budget-bar-wrap">
+          <div class="budget-bar-wrap" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Budget used">
             <div id="budgetBar" class="budget-bar"></div>
           </div>
 
@@ -56,29 +57,29 @@
           <p class="budget-feedback" id="budgetFeedback"></p>
 
           <div class="income-set">
+            <label for="incomeInput" class="visually-hidden">Monthly income</label>
             <input
               type="number"
               id="incomeInput"
               placeholder="Enter monthly income"
               min="0"
             />
-            <button id="setIncomeBtn">Set Income</button>
+            <button id="setIncomeBtn" type="button">Set Income</button>
           </div>
-        </header>
-
-        <section class="grid" id="expensesGrid">
-          <article class="card add-expense" id="addExpenseCard">
-            <div class="plus">+</div>
-            <p>New Expense</p>
-          </article>
         </section>
 
-        <!-- DESCRIPTION SECTIONS -->
-        <section class="card description-card">
-          <h3>Understanding Budget Categories</h3>
+        <section class="grid" id="expensesGrid" aria-label="Expenses">
+          <button class="card add-expense" id="addExpenseCard" type="button" aria-label="Add new expense">
+            <span class="plus" aria-hidden="true">+</span>
+            <span>New Expense</span>
+          </button>   
+        </section>
+
+        <section class="card description-card" aria-labelledby="categories-heading">
+          <h3 id="categories-heading">Understanding Budget Categories</h3>
           <p>
-            Budget categories help you organize your spending and understand how
-            your money is being used each month.
+            Budget categories help you organize your spending and understand
+            how your money is being used each month.
           </p>
 
           <ul>
@@ -88,14 +89,14 @@
           </ul>
         </section>
 
-        <section class="card description-card">
-          <h3>Example Expense Categories</h3>
+        <section class="card description-card" aria-labelledby="examples-heading">
+          <h3 id="examples-heading">Example Expense Categories</h3>
 
           <table>
             <thead>
               <tr>
-                <th>Category</th>
-                <th>Examples</th>
+                <th scope="col">Category</th>
+                <th scope="col">Examples</th>
               </tr>
             </thead>
             <tbody>
@@ -115,41 +116,42 @@
           </table>
         </section>
 
-        <section class="card description-card">
-          <h3>Example Expense Entry</h3>
-          <p>
-            This example shows what information is needed to add an expense.
-          </p>
+        <section class="card description-card" aria-labelledby="entry-heading">
+          <h3 id="entry-heading">Example Expense Entry</h3>
+          <p>This example shows what information is needed to add an expense.</p>
 
           <form>
-            <label>
+            <label for="demoName">
               Expense Name
-              <input type="text" placeholder="e.g. Rent" disabled />
+              <input type="text" id="demoName" placeholder="e.g. Rent" disabled />
             </label>
 
-            <label>
+            <label for="demoCategory">
               Category
-              <select disabled>
+              <select id="demoCategory" disabled>
                 <option>Needs</option>
                 <option>Wants</option>
                 <option>Savings</option>
               </select>
             </label>
 
-            <label>
+            <label for="demoAmount">
               Amount ($)
-              <input type="number" placeholder="e.g. 1200" disabled />
+              <input type="number" id="demoAmount" placeholder="e.g. 1200" disabled />
             </label>
           </form>
         </section>
+
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="container">
         <p>
-          © 2026 LifeQuest Team ·
-          <a href="about.html">About this project</a>
+          <strong>Credits:</strong> Productivity Arena inspired by Zoho.
+        </p>
+        <p>
+          <small>&copy; <span data-year></span> LifeQuest Team.</small>
         </p>
       </div>
     </footer>

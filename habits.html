@@ -25,8 +25,9 @@
 
         <nav class="nav" aria-label="Primary">
           <a data-nav href="index.html">Home</a>
+          <a data-nav href="dashboard.html">Dashboard</a>
           <a data-nav href="money.html">Money Manager</a>
-          <a data-nav href="habits.html">Healthy Habits</a>
+          <a data-nav href="habits.html" aria-current="page">Healthy Habits</a>
           <a data-nav href="productivity.html">Productivity Arena</a>
           <a data-nav href="achievements.html">Achievements</a>
           <a data-nav href="quiz.html">Quiz Game</a>
@@ -58,10 +59,10 @@
           </ul>
         </section>
 
-        <section class="card" style="margin-top: 1rem">
+        <section class="card habits-form" style="margin-top: 1rem">
           <h3>Log Your Daily Habits</h3>
           <form>
-            <p>
+            <div class="form-group">
               <label for="sleep">Sleep Time (hours):</label><br />
               <input
                 type="number"
@@ -73,9 +74,9 @@
                 placeholder="e.g. 7.5"
                 required
               />
-            </p>
+            </div>
 
-            <p>
+            <div class="form-group">
               <label for="water">Water Intake (ml):</label><br />
               <input
                 type="number"
@@ -85,59 +86,61 @@
                 max="5000"
                 placeholder="e.g. 2000"
               />
-            </p>
+            </div>
 
-            <fieldset>
-              <legend>Physical Activity Today</legend>
-              <p>
-                <input
-                  type="radio"
-                  id="exercise-run"
-                  name="exercise"
-                  value="running"
-                />
-                <label for="exercise-run">Running</label>
-              </p>
-              <p>
-                <input
-                  type="radio"
-                  id="exercise-walk"
-                  name="exercise"
-                  value="walking"
-                />
-                <label for="exercise-walk">Walking</label>
-              </p>
-              <p>
-                <input
-                  type="radio"
-                  id="exercise-strength"
-                  name="exercise"
-                  value="strength"
-                />
-                <label for="exercise-strength">Strength Training</label>
-              </p>
-              <p>
-                <input
-                  type="radio"
-                  id="exercise-other"
-                  name="exercise"
-                  value="other"
-                />
-                <label for="exercise-other">Other</label>
-              </p>
-              <p>
-                <input
-                  type="radio"
-                  id="exercise-none"
-                  name="exercise"
-                  value="none"
-                  checked
-                />
-                <label for="exercise-none">No Activity</label>
-              </p>
-            </fieldset>
+            <div class="form-group">
+              <fieldset>
+                <legend>Physical Activity Today</legend>
+                <p>
+                  <input
+                    type="radio"
+                    id="exercise-run"
+                    name="exercise"
+                    value="running"
+                  />
+                  <label for="exercise-run">Running</label>
+                </p>
+                <p>
+                  <input
+                    type="radio"
+                    id="exercise-walk"
+                    name="exercise"
+                    value="walking"
+                  />
+                  <label for="exercise-walk">Walking</label>
+                </p>
+                <p>
+                  <input
+                    type="radio"
+                    id="exercise-strength"
+                    name="exercise"
+                    value="strength"
+                  />
+                  <label for="exercise-strength">Strength Training</label>
+                </p>
+                <p>
+                  <input
+                    type="radio"
+                    id="exercise-other"
+                    name="exercise"
+                    value="other"
+                  />
+                  <label for="exercise-other">Other</label>
+                </p>
+                <p>
+                  <input
+                    type="radio"
+                    id="exercise-none"
+                    name="exercise"
+                    value="none"
+                    checked
+                  />
+                  <label for="exercise-none">No Activity</label>
+                </p>
+              </fieldset>
+            </div>
 
-            <p>
+            <div class="form-group">
               <label for="meals">Number of Healthy Meals:</label><br />
               <select id="meals" name="meals">
                 <option value="" selected disabled>Select an option</option>
@@ -145,9 +148,9 @@
                 <option value="2">2 Meals</option>
                 <option value="3">3+ Meals</option>
               </select>
-            </p>
+            </div>
 
-            <p>
+            <div class="form-group">
               <label for="notes">Wellness Notes (optional):</label><br />
               <textarea
                 id="notes"
@@ -156,11 +159,11 @@
                 placeholder="How did you feel today? Any mental wellness activities (meditation, reading)?"
               >
               </textarea>
-            </p>
+            </div>
 
-            <p>
-              <button type="submit">Save My Habits</button>
-            </p>
+            <div class="form-group">
+              <button type="submit" class="btn">Save My Habits</button>
+            </div>
           </form>
         </section>
 
@@ -177,7 +180,10 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p><strong>Credits:</strong> (Add asset sources here.)</p>
+        <p><strong>Credits:</strong> Icons from <a href="https://www.flaticon.com/">Flaticon</a> (free for commercial use).</p>
+        <div class="footer-credits">
+          <p>All assets used are for educational purposes only.</p>
+        </div>
         <p>
           <small>&copy; <span data-year></span> LifeQuest Team.</small>
         </p>
