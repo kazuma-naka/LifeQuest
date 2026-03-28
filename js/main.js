@@ -3,6 +3,7 @@
   const path = location.pathname.split("/").pop() || "index.html";
 
   links.forEach((a) => {
+    a.removeAttribute("aria-current");
     const href = a.getAttribute("href");
     if (href === path) a.setAttribute("aria-current", "page");
   });
