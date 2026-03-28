@@ -389,3 +389,149 @@ hr {
   background-color: #5c5c5c;
   margin: 5em 0;
 }
+
+.goal-card {
+  position: relative;
+  text-align: left;
+  transition: opacity 0.3s ease, box-shadow 0.2s ease;
+}
+
+.goal-card.goal-done {
+  opacity: 0.55;
+}
+
+.goal-category {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  margin-bottom: 0.4rem;
+}
+
+.goal-name {
+  margin: 0.25rem 0 0.5rem;
+}
+
+.goal-sessions-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin: 0.25rem 0 0.6rem;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.goal-actions button {
+  flex: 1;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.goal-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Pomodoro timer */
+.timer-display {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin: 0.75rem 0 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.timer-controls button {
+  width: auto;
+  flex: 1;
+  max-width: 120px;
+  font-size: 0.85rem;
+}
+
+.timer-controls button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.timer-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* Milestone cards */
+.milestone-card {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestone-unlocked {
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.15);
+}
+
+.milestone-status {
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.milestone-status.locked {
+  color: var(--muted);
+}
+
+/* Validation error */
+.validation-error {
+  color: var(--danger);
+  font-size: 0.82rem;
+  margin: 0 0 0.5rem;
+  min-height: 1.2em;
+}
+
+/* Toast notifications */
+#toastContainer {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  color: var(--text);
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  max-width: 280px;
+}
+
+.toast.toast-show {
+  opacity: 1;
+  transform: translateX(0);
+}
